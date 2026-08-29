@@ -33,10 +33,16 @@ const levelClass = {
   5: 'github-cell github-cell--high',
 }
 
+const mostUsedTech = [
+  { lang: 'HTML', pct: 97 },
+  { lang: 'CSS', pct: 92 },
+  { lang: 'Bootstrap', pct: 93 },
+  { lang: 'JavaScript', pct: 88 },
+]
+
 export default function Github() {
   const [state, setState] = useState(loadState.loading)
   const [user, setUser] = useState(null)
-  const [langs, setLangs] = useState(null)
 
   useEffect(() => {
     let cancelled = false
@@ -44,18 +50,14 @@ export default function Github() {
 
     ;(async () => {
       try {
-        const [userRes, repoRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${profile.github}`, { signal: controller.signal }),
-          fetch(`https://api.github.com/users/${profile.github}/repos?per_page=100&sort=updated`, {
-            signal: controller.signal,
-          }),
-        ])
+        const userRes = await fetch(`https://api.github.com/users/${profile.github}`, {
+          signal: controller.signal,
+        })
 
         if (cancelled) return
-        if (!userRes.ok || !repoRes.ok) throw new Error('fetch failed')
+        if (!userRes.ok) throw new Error('fetch failed')
 
         const userData = await userRes.json()
-        const repos = await repoRes.json()
 
         if (cancelled) return
         setUser({
@@ -67,19 +69,6 @@ export default function Github() {
           following: userData.following,
           avatar: userData.avatar_url,
         })
-
-        const langTotals = {}
-        for (const repo of repos) {
-          if (!repo.language) continue
-          langTotals[repo.language] = (langTotals[repo.language] || 0) + 1
-        }
-        const total = Object.values(langTotals).reduce((a, b) => a + b, 0) || 1
-        const top = Object.entries(langTotals)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 4)
-          .map(([lang, count]) => ({ lang, pct: Math.round((count / total) * 100) }))
-
-        setLangs(top)
         setState(loadState.ok)
       } catch (err) {
         if (err.name === 'AbortError') return
@@ -183,11 +172,7 @@ export default function Github() {
             </div>
           )}
           <div className="github-langs">
-            {(langs || [
-              { lang: 'HTML', pct: 50 },
-              { lang: 'CSS', pct: 30 },
-              { lang: 'JavaScript', pct: 20 },
-            ]).map((l, i) => (
+            {mostUsedTech.map((l, i) => (
               <div className="github-lang" key={`${l.lang}-${i}`}>
                 <div className="github-lang__top">
                   <span className="github-lang__name">{l.lang}</span>
@@ -196,10 +181,10 @@ export default function Github() {
                 <div className="github-lang__bar">
                   <motion.div
                     className="github-lang__bar-fill"
-                    initial={{ scaleX: 0 }}
+                    initial={{ scaleX: 1 }}
                     whileInView={{ scaleX: l.pct / 100 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.2 + i * 0.1 }}
+                    transition={{ duration: 5, delay: 0.2 + i * 0.1 }}
                   />
                 </div>
               </div>

@@ -37,7 +37,7 @@ const accents = ['#00ff9d', '#00e5ff', '#8b5cf6']
 export default function Projects() {
   return (
     <section className="section" id="projects">
-      <SectionHeading title="PROJECT_DATABASE" subtitle="opening_project_records // 1 found" />
+      <SectionHeading title="PROJECT_DATABASE" subtitle="opening_project_records // 2 found" />
       <div className="projects-grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
         {projects.map((project, i) => {
           const accent = accents[i % accents.length]
@@ -52,8 +52,10 @@ export default function Projects() {
               whileHover={{ y: -10 }}
             >
               <div className="project-card__media">
+                <div className="project-card__glow" aria-hidden="true" />
                 <img
-                  src={projectPreviewSvg(project.id, accent)}
+                  key={project.preview || project.id}
+                  src={project.preview || projectPreviewSvg(project.id, accent)}
                   alt={`${project.title} interface preview`}
                   loading="lazy"
                   decoding="async"

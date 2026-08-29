@@ -17,6 +17,7 @@ const profileRows = [
   { key: 'ROLE', val: 'FRONTEND DEVELOPER' },
   { key: 'STATUS', val: 'OPEN TO WORK' },
   { key: 'LOCATION', val: 'TAMIL NADU, INDIA' },
+  { key: 'NODE', val: '12.435191°N 78.968418°E' },
   { key: 'EXPERIENCE', val: 'DEVELOPING' },
 ]
 

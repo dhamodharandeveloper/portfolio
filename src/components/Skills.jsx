@@ -1,22 +1,27 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 import { skills } from '../data/siteData'
 
 function SkillBar({ level, delay }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, amount: 0.3 })
+
   return (
     <div
+      ref={ref}
       className="skill-bar"
       role="progressbar"
       aria-valuenow={level}
       aria-valuemin={0}
       aria-valuemax={100}
     >
-      <motion.div
+      <div
         className="skill-bar__fill"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: level / 100 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 1.2, ease: 'easeOut', delay }}
+        style={{
+          width: inView ? `${level}%` : '0%',
+          transitionDelay: `${delay}s`,
+        }}
       />
     </div>
   )

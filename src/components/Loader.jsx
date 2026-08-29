@@ -15,7 +15,7 @@ export default function Loader({ onDone }) {
   const [pct, setPct] = useState(0)
 
   useEffect(() => {
-    const lineTimers = bootLines.map((_, i) => setTimeout(() => setVisibleLines(i + 1), i * 320))
+    const lineTimers = bootLines.map((_, i) => setTimeout(() => setVisibleLines(i + 1), i * 800))
 
     const pctTimer = setInterval(() => {
       setPct((p) => {
@@ -25,9 +25,9 @@ export default function Loader({ onDone }) {
         }
         return p + 1
       })
-    }, 20)
+    }, 50)
 
-    const doneTimer = setTimeout(onDone, 2050)
+    const doneTimer = setTimeout(onDone, 5000)
 
     return () => {
       lineTimers.forEach(clearTimeout)
@@ -52,7 +52,7 @@ export default function Loader({ onDone }) {
               className={`line ${i === bootLines.length - 1 ? 'granted' : 'done'}`}
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
             >
               {line}
             </motion.div>

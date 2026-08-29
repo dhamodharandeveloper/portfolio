@@ -1,3 +1,6 @@
+import cocoElitePreview from '../assets/coco elite.png'
+import profilePreview from '../assets/profile.png'
+
 export const profile = {
   name: 'DHAMODHARAN',
   role: 'Frontend Developer',
@@ -74,6 +77,19 @@ export const projects = [
     demo: 'https://www.csfood.in/',
     source: '#',
     status: 'ONLINE',
+    preview: cocoElitePreview,
+  },
+  {
+    id: 5,
+    title: 'MY PROFILE',
+    category: 'PORTFOLIO WEBSITE',
+    description:
+      'A personal portfolio site — fully responsive about, skills, and contact profile, built with pure HTML, CSS, Bootstrap, and JavaScript.',
+    tech: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+    demo: 'https://dhamodharan63.github.io/My-Profile/',
+    source: 'https://github.com/dhamodharan63/My-Profile',
+    status: 'ONLINE',
+    preview: profilePreview,
   },
 ]
 

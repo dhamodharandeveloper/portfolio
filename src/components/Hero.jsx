@@ -6,6 +6,37 @@ import { profile, rotatingRoles } from '../data/siteData'
 
 const roles = rotatingRoles
 const ROLE_DURATION = 2600
+const BOOT_TEXT = 'SYSTEM INITIALIZED...'
+const NAME_TEXT = 'DHAMODHARAN'
+const TYPING_TOTAL = 3000
+const CHAR_MS = Math.round(TYPING_TOTAL / (BOOT_TEXT.length + NAME_TEXT.length))
+const NAME_DELAY = BOOT_TEXT.length * CHAR_MS
+
+function useTypewriter(text, charMs, startDelay = 0) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    setCount(0)
+    let iv = undefined
+    const start = setTimeout(() => {
+      iv = setInterval(() => {
+        setCount((c) => {
+          if (c >= text.length) {
+            clearInterval(iv)
+            return text.length
+          }
+          return c + 1
+        })
+      }, charMs)
+    }, startDelay)
+    return () => {
+      clearTimeout(start)
+      if (iv) clearInterval(iv)
+    }
+  }, [text, charMs, startDelay])
+
+  return { typed: text.slice(0, count), done: count >= text.length }
+}
 
 function RotatingRole({ roleIndex }) {
   const [text, setText] = useState('')
@@ -43,6 +74,8 @@ function RotatingRole({ roleIndex }) {
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0)
+  const boot = useTypewriter(BOOT_TEXT, CHAR_MS, 0)
+  const name = useTypewriter(NAME_TEXT, CHAR_MS, NAME_DELAY)
 
   useEffect(() => {
     const t = setTimeout(() => setRoleIndex((i) => (i + 1) % roles.length), ROLE_DURATION)
@@ -55,6 +88,7 @@ export default function Hero() {
     <section className="hero" id="home">
       <div className="hero__cyber-grid" aria-hidden="true" />
       <div className="hero__glow-center" aria-hidden="true" />
+      <div className="hero__ring" aria-hidden="true" />
       <ParticleField />
 
       <div className="hero__corner hero__corner--tl" aria-hidden="true" />
@@ -79,18 +113,18 @@ export default function Hero() {
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
       >
         <motion.div className="hero__boot" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}>
-          <span className="dot" /> SYSTEM INITIALIZED...
+          <span className="dot" /> {boot.typed}
+          {!boot.done && <span className="terminal__cursor" aria-hidden="true" />}
         </motion.div>
 
         <motion.h1
           className="hero__name glitch"
-          data-text="DHAMODHARAN"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.45 }}
+          data-text={NAME_TEXT}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <span className="n-name">DHAMODHARAN</span>
-          <span className="cursor-line" aria-hidden="true" />
+          <span className="n-name">{name.typed}</span>
         </motion.h1>
 
         <motion.div

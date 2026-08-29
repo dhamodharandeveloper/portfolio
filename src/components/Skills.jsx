@@ -26,7 +26,7 @@ export default function Skills() {
   return (
     <section className="section" id="skills">
       <SectionHeading title="SYSTEM_SKILLS" subtitle="analyzing_skillset // module_core" />
-      <div className="skills-grid">
+      <div className="skills-grid row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 g-lg-4">
         {skills.map((skill, i) => (
           <motion.article
             className="skill-card"

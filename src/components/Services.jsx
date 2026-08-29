@@ -44,7 +44,7 @@ export default function Services() {
   return (
     <section className="section" id="services">
       <SectionHeading title="WHAT_I_DO" subtitle="services_online // capabilities_4" />
-      <div className="services-grid">
+      <div className="services-grid row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 g-lg-4">
         {services.map((service, i) => {
           const Icon = iconMap[service.icon] || Code2
           return (
@@ -55,7 +55,7 @@ export default function Services() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.55, ease: 'easeOut', delay: i * 0.1 }}
             >
-              <TiltCard className="service-card">
+              <TiltCard className="service-card h-100">
                 <div className="service-card__icon" aria-hidden="true">
                   <Icon />
                 </div>

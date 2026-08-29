@@ -55,6 +55,14 @@ img {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; }
 
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: #05070d; }
 ::-webkit-scrollbar-thumb {
@@ -812,9 +820,6 @@ body::after {
    ABOUT
    ============================================================ */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 48px;
   align-items: stretch;
 }
 
@@ -1014,9 +1019,7 @@ body::after {
    SKILLS
    ============================================================ */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
+  align-items: stretch;
 }
 
 .skill-card {
@@ -1141,9 +1144,7 @@ body::after {
    SERVICES
    ============================================================ */
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
+  align-items: stretch;
 }
 
 .service-card {
@@ -1224,9 +1225,7 @@ body::after {
    PROJECTS
    ============================================================ */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  align-items: stretch;
 }
 
 .project-card {
@@ -1386,9 +1385,6 @@ body::after {
    GITHUB
    ============================================================ */
 .github-top {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 26px;
   margin-bottom: 26px;
 }
 
@@ -1468,9 +1464,7 @@ body::after {
 }
 
 .github-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  align-items: stretch;
 }
 
 .github-card {
@@ -1606,9 +1600,7 @@ body::after {
    GOALS
    ============================================================ */
 .goals-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  align-items: stretch;
 }
 
 .goal-card {
@@ -1769,9 +1761,6 @@ body::after {
    CONTACT
    ============================================================ */
 .contact-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 40px;
   align-items: start;
 }
 
@@ -2004,28 +1993,10 @@ body::after {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 1024px) {
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-  .goals-grid { grid-template-columns: repeat(2, 1fr); }
-  .github-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { grid-template-columns: 1fr; }
-  .github-top { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-}
-
 @media (max-width: 768px) {
   .section { padding: 84px 20px; }
   .hero__hud,
   .hero__corner { display: none; }
-
-  .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .services-grid { grid-template-columns: 1fr; }
-  .projects-grid { grid-template-columns: 1fr; gap: 22px; }
-  .goals-grid { grid-template-columns: 1fr; }
-  .github-grid { grid-template-columns: 1fr; }
-  .github-top { grid-template-columns: 1fr; }
 
   .tech-wall__row { gap: 12px; }
   .tech-chip { min-width: 76px; padding: 14px 16px; font-size: 0.85rem; }
@@ -2033,16 +2004,67 @@ body::after {
 }
 
 @media (max-width: 480px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .hero__cta { flex-direction: column; }
+  .section { padding: 68px 16px; }
+  .section-head { margin-bottom: 36px; }
+  .section-title { font-size: 1.35rem; letter-spacing: 0.05em; }
+  .section-sub { font-size: 0.78rem; letter-spacing: 0.02em; }
+  .section-title-line { width: 60px; }
+
+  .hero { padding: 108px 16px 74px; }
+  .hero__boot { padding: 7px 14px; font-size: 0.72rem; letter-spacing: 0.14em; }
+  .hero__name { letter-spacing: 0.02em; }
+  .hero__role { letter-spacing: 0.16em; }
+  .hero__tagline { font-size: 0.85rem; }
+  .hero__status { font-size: 0.74rem; padding: 7px 14px; }
+  .hero__cta { flex-direction: column; gap: 12px; }
   .hero__cta .btn { width: 100%; justify-content: center; }
-  .contact-form { padding: 22px; }
-  .contact-grid { gap: 28px; }
-  .github-profile { flex-direction: column; text-align: center; }
+
+  .skill-card { padding: 22px 20px; }
+
+  .terminal__bar { padding: 10px 14px; }
+  .terminal__body { padding: 18px 14px; font-size: 0.82rem; line-height: 1.85; }
+  .profile-card__head { padding: 20px; }
+  .profile-card__data { padding: 18px 20px; }
+  .profile-card__foot { padding: 14px 20px; font-size: 0.74rem; }
+
+  .tech-wall { padding: 28px 16px; }
+  .tech-wall__status { gap: 10px 16px; font-size: 0.7rem; margin-bottom: 26px; }
+  .tech-wall__row { gap: 12px; }
+  .tech-chip { min-width: 64px; padding: 14px 12px; font-size: 0.85rem; }
+
+  .project-card__body { padding: 18px; }
+  .project-card__title { font-size: 1rem; }
+
+  .github-profile { padding: 20px; gap: 16px; flex-direction: column; text-align: center; }
   .github-profile__stats { justify-content: center; }
-  .profile-card__foot { font-size: 0.74rem; }
-  .terminal__line { font-size: 0.86rem; }
-  .footer__motto { letter-spacing: 0.12em; }
+  .github-profile__handle { font-size: 0.64rem; }
+  .github-profile__name { font-size: 1.05rem; }
+  .github-profile__bio { font-size: 0.82rem; }
+  .github-stat__val { font-size: 1.15rem; }
+  .github-stat__label { font-size: 0.6rem; }
+  .github-card__head { padding: 18px; }
+
+  .contact-channels { gap: 14px; }
+  .contact-channel { padding: 15px 16px; gap: 14px; }
+  .contact-channel__label { font-size: 0.66rem; }
+  .contact-channel__value { font-size: 0.86rem; }
+  .contact-form { padding: 20px; }
+  .contact-form__label { font-size: 0.72rem; }
+  .contact-form__input,
+  .contact-form__input:is(input, textarea) { font-size: 1rem; }
+  .contact-form textarea { min-height: 110px; }
+
+  .footer__motto { letter-spacing: 0.09em; }
+  .footer__socials { gap: 10px; }
+}
+
+@media (max-width: 360px) {
+  .hero__name { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .hero__role { font-size: 1rem; letter-spacing: 0.12em; }
+  .hero__cta .btn { font-size: 0.74rem; }
+  .profile-row { font-size: 0.8rem; }
+  .profile-row__key { min-width: 84px; }
+  .footer__sysline { font-size: 0.62rem; }
 }
 
 /* ============================================================

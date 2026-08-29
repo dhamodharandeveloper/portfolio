@@ -25,9 +25,9 @@ export default function About() {
     <section className="section" id="about">
       <SectionHeading title="ABOUT_ME.EXE" subtitle="decode_developer_profile // bio v2.6" />
 
-      <div className="about-grid">
+      <div className="about-grid row g-3 g-lg-4">
         <motion.div
-          className="terminal"
+          className="terminal col-12 col-lg-7"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -120,7 +120,7 @@ export default function About() {
         </motion.div>
 
         <motion.div
-          className="profile-card"
+          className="profile-card col-12 col-lg-5"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}

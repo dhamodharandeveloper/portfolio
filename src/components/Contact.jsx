@@ -100,8 +100,8 @@ export default function Contact() {
         </a>
       </motion.div>
 
-      <div className="contact-grid">
-        <div className="contact-channels">
+      <div className="contact-grid row g-3 g-lg-4">
+        <div className="contact-channels col-12 col-lg-5">
           {Object.entries(channelMeta).map(([key, meta], i) => {
             const Icon = meta.icon
             return (
@@ -132,7 +132,7 @@ export default function Contact() {
         </div>
 
         <motion.form
-          className="contact-form"
+          className="contact-form col-12 col-lg-7"
           onSubmit={handleSubmit}
           noValidate
           initial={{ opacity: 0, y: 34 }}

@@ -16,7 +16,7 @@ export default function Goals() {
   return (
     <section className="section" id="goals">
       <SectionHeading title="CURRENT_MISSIONS" subtitle="mission_control // 6 objectives active" />
-      <div className="goals-grid">
+      <div className="goals-grid row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
         {goals.map((goal, i) => {
           const Icon = iconMap[goal.icon] || Rocket
           return (

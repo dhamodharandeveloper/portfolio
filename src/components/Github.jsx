@@ -110,9 +110,9 @@ export default function Github() {
     <section className="section" id="github">
       <SectionHeading title="GITHUB_ACTIVITY" subtitle="linking_github_api // user_dhamodharan63" />
 
-      <div className="github-top">
+      <div className="github-top row g-3 g-lg-4">
         <motion.div
-          className="github-profile"
+          className="github-profile col-12 col-lg-7"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -165,7 +165,7 @@ export default function Github() {
         </motion.div>
 
         <motion.div
-          className="github-card"
+          className="github-card col-12 col-lg-5"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -208,7 +208,7 @@ export default function Github() {
         </motion.div>
       </div>
 
-      <div className="github-grid">
+      <div className="github-grid row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-lg-4">
         {statCards.map((s, i) => (
           <motion.div
             className="github-card"

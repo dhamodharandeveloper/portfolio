@@ -40,7 +40,9 @@ export default function Skills() {
           >
             <div className="skill-card__top">
               <div className="skill-card__icon" aria-hidden="true">
-                {skill.name.replace(/\d/g, '').slice(0, 2).toUpperCase()}
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+                  <path d={skill.logo} />
+                </svg>
               </div>
               <span className="skill-card__pct">{skill.level}%</span>
             </div>

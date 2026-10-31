@@ -8,7 +8,7 @@ function Portrait() {
   return (
     <div className="profile-avatar__photo">
       <img
-        src="/profile-dhamodharan.jpg"
+        src={`${import.meta.env.BASE_URL}profile-dhamodharan.jpg`}
         alt="Portrait of Dhamodharan"
         width="1000"
         height="1000"

@@ -12,6 +12,9 @@ import {
 import { FaCss3Alt, FaJava } from 'react-icons/fa'
 import { DiVisualstudio, DiPhotoshop } from 'react-icons/di'
 
+// Public assets live under the deploy base (/ on dev, /portfolio/ on GitHub Pages).
+const asset = (file) => `${import.meta.env.BASE_URL}${file}`
+
 export const profile = {
   name: 'Dhamodharan',
   displayName: 'DHAMODHARAN',
@@ -25,7 +28,7 @@ export const profile = {
   github: 'https://github.com/dhamodharandeveloper',
   linkedin: 'https://www.linkedin.com/in/dhamodharandeveloper',
   instagram: 'https://www.instagram.com/its.me.dhamodharan/',
-  resumeFile: '/DHAMODHARAN_S_Resume.pdf',
+  resumeFile: asset('DHAMODHARAN_S_Resume.pdf'),
   summary:
     'Motivated and aspiring Full Stack Developer with a foundation in HTML5, CSS3, JavaScript, React.js, Tailwind CSS, Bootstrap, Java, Spring Boot, and MySQL. Completed academic and practical projects, including a Hostel Management System and an Online Library Management System. Eager to apply technical knowledge, learn new technologies, and contribute to developing responsive, user-friendly web applications as an entry-level developer.',
   shortIntro:
@@ -136,7 +139,7 @@ export const projects = [
     modules: ['Product Browsing', 'Online Orders', 'Order Management'],
     type: 'E-Commerce Website',
     visual: 'coco',
-    image: '/coco-elite-preview.jpg',
+    image: asset('coco-elite-preview.jpg'),
     link: 'https://csfood.in/',
     status: 'Live website',
   },

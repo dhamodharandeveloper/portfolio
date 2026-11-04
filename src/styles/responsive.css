@@ -28,10 +28,6 @@
   .tech-chip--java {
     right: 0;
   }
-  .cert-card {
-    padding: 32px;
-    gap: 26px;
-  }
 }
 
 @media (max-width: 991px) {
@@ -135,31 +131,6 @@
     left: 103.5px;
   }
 
-  .cert-card {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
-    padding: 28px;
-  }
-  .cert-seal {
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 20px;
-    padding-left: 8px;
-  }
-  .cert-seal__orbit {
-    top: 50%;
-    left: 22px;
-    transform: translate(-50%, -50%);
-    width: 148px;
-    height: 148px;
-  }
-  .cert-seal__hex {
-    width: 100px;
-    height: 110px;
-  }
-  .cert-seal__caption {
-    text-align: left;
-  }
 }
 
 @media (max-width: 767px) {
@@ -256,6 +227,9 @@
 
   .about__stats {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .about__stats > *:last-child {
+    grid-column: span 2;
   }
   .summary-card {
     padding: 24px;
@@ -447,43 +421,6 @@
     font-size: 1.05rem;
   }
 
-  .cert-card {
-    padding: 22px 18px;
-  }
-  .cert-seal {
-    gap: 14px;
-  }
-  .cert-seal__orbit {
-    left: 18px;
-    width: 124px;
-    height: 124px;
-  }
-  .cert-seal__hex {
-    width: 84px;
-    height: 92px;
-  }
-  .cert-seal__hex-inner svg {
-    width: 26px;
-    height: 26px;
-  }
-  .cert-seal__hex-inner span {
-    font-size: 6.5px;
-  }
-  .cert-seal__caption {
-    font-size: 7px;
-    letter-spacing: 0.12em;
-  }
-  .cert-training {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .cert-foot {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
-  }
-
   .contact__channel {
     font-size: 9px;
   }
@@ -550,18 +487,11 @@
   .about__stats {
     grid-template-columns: 1fr;
   }
+  .about__stats > *:last-child {
+    grid-column: auto;
+  }
   .skill-items {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .cert-seal {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .cert-seal__orbit {
-    left: 42px;
-  }
-  .cert-seal__caption {
-    padding-left: 4px;
   }
   .socials {
     flex-wrap: wrap;

@@ -178,18 +178,6 @@ export const education = [
   },
 ]
 
-export const certifications = [
-  {
-    id: 'tcs-ion',
-    date: 'June 2025',
-    issuer: 'TCS iON',
-    title: 'Web Development Intern',
-    training: 'Build an Online Notes App',
-    organisation: 'TCS iON, Tata Consultancy Services',
-    certificate: 'Certificate of Participation',
-  },
-]
-
 export const milestones = [
   {
     year: '2026',
@@ -217,7 +205,6 @@ export const stats = [
   { value: projects.length, label: 'Projects Built', suffix: '' },
   { value: skillCount, label: 'Technologies', suffix: '' },
   { value: education.length, label: 'Qualifications', suffix: '' },
-  { value: certifications.length, label: 'Certification', suffix: '' },
 ]
 
 export const navLinks = [
@@ -226,6 +213,5 @@ export const navLinks = [
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
-  { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' },
 ]

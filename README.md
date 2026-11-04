@@ -4,7 +4,7 @@ A cyber-blue developer portfolio built with React, Three.js and Framer Motion.
 Single-page layout with a live WebGL hero scene, scroll-reveal sections and a
 fully responsive grid system (desktop, laptop, tablet and mobile).
 
-**Live sections:** Home · About · Skills · Projects · Education · Certifications · Contact
+**Live sections:** Home · About · Skills · Projects · Education · Contact
 
 ## Tech Stack
 

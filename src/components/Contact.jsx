@@ -91,7 +91,7 @@ export default function Contact() {
     <section id="contact" className="section contact">
       <div className="container-x">
         <SectionHeading
-          index="06"
+          index="05"
           label="Contact"
           title="Open a secure channel"
           subtitle="Direct contact details from the resume. Use the form to compose a message in your own email client — there is no hidden backend."

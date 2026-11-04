@@ -151,7 +151,7 @@ export const education = [
     short: 'M.Sc. IT',
     degree: 'Master of Science in Information Technology',
     institution: 'Arignar Anna Govt. Arts and Science College, Villupuram',
-    score: '74.6%',
+    score: '73.6%',
     current: true,
   },
   {
@@ -159,7 +159,7 @@ export const education = [
     short: 'B.Sc. CS',
     degree: 'Bachelor of Science in Computer Science',
     institution: 'Arignar Anna Govt. Arts and Science College, Villupuram',
-    score: '79.10%',
+    score: '78.10%',
   },
   {
     year: '2021',
@@ -194,12 +194,12 @@ export const milestones = [
   {
     year: '2026',
     title: 'M.Sc. Information Technology',
-    detail: 'Arignar Anna Govt. Arts and Science College, Villupuram - 74.6%',
+    detail: 'Arignar Anna Govt. Arts and Science College, Villupuram - 73.6%',
   },
   {
     year: '2024',
     title: 'B.Sc. Computer Science',
-    detail: 'Arignar Anna Govt. Arts and Science College, Villupuram - 79.10%',
+    detail: 'Arignar Anna Govt. Arts and Science College, Villupuram - 78.10%',
   },
   {
     year: '2021',

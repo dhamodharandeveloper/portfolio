@@ -20,9 +20,9 @@
   --border-faint: rgba(22, 75, 131, 0.28);
   --glass: linear-gradient(
     155deg,
-    rgba(8, 23, 43, 0.94) 0%,
-    rgba(8, 23, 43, 0.66) 52%,
-    rgba(3, 8, 20, 0.82) 100%
+    rgba(8, 23, 43, 0.96) 0%,
+    rgba(8, 23, 43, 0.74) 52%,
+    rgba(3, 8, 20, 0.86) 100%
   );
   --font-display: 'Orbitron', 'Segoe UI', sans-serif;
   --font-body: 'Space Grotesk', 'Segoe UI', sans-serif;
@@ -258,7 +258,7 @@ p {
 
 .bg-fx__grid {
   position: absolute;
-  inset: -25%;
+  inset: -12%;
   background-image:
     linear-gradient(rgba(22, 75, 131, 0.17) 1px, transparent 1px),
     linear-gradient(90deg, rgba(22, 75, 131, 0.17) 1px, transparent 1px);
@@ -266,6 +266,7 @@ p {
   -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 35%, #000 10%, transparent 78%);
   mask-image: radial-gradient(ellipse 65% 60% at 50% 35%, #000 10%, transparent 78%);
   animation: gridDrift 32s linear infinite;
+  will-change: transform;
 }
 
 .bg-fx__grid::after {
@@ -317,6 +318,7 @@ p {
   animation-name: particleRise;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  will-change: transform, opacity;
 }
 
 .cursor-glow {
@@ -353,8 +355,6 @@ p {
   background: var(--glass);
   border: 1px solid var(--border-soft);
   border-radius: 14px;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
   box-shadow:
     0 24px 70px -46px rgba(0, 0, 0, 0.95),
     inset 0 1px 0 rgba(255, 255, 255, 0.035);
